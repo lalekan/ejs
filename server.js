@@ -5,6 +5,16 @@ app.get('/', (req, res) => {
   res.render('home.ejs', {RESTAURANT});
 });
 
+app.get('/menu', (req, res) => {
+    res.render('menu.ejs', {RESTAURANT});
+})
+
+app.get('/menu/:category', (req, res) => {
+    
+    menuItems = req.params
+    res.render('category.ejs');
+})
+
 app.listen(3000);
 
 const RESTAURANT = {
