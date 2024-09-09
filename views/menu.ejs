@@ -10,7 +10,10 @@
     <h1>Full Menu</h1>
         <ul>
             <% RESTAURANT.menu.forEach((item) => { %>
-                <li><%= item.name %> --- Price: $<%= item.price %> --- ratings: <%= item.rating %> * --- details: <%= item.details %></li>
+                <li>
+                    <h3><%= item.name %> --- Price: $<%= item.price %>  --- Ratings: <%= item.rating %>*  </h3> 
+                    <p><%= item.details %> </p>
+                </li>
             <% }); %>
         </ul>
 </body>

@@ -11,8 +11,22 @@ app.get('/menu', (req, res) => {
 
 app.get('/menu/:category', (req, res) => {
     
-    menuItems = req.params
-    res.render('category.ejs');
+    let menuItems = []
+    let categoryName = req.params.category
+    RESTAURANT.menu.forEach((item) => {
+       if (req.params.category === item.category) {
+        menuItems.push(item)
+       }
+       
+        // menuItems = item.category
+        console.log(menuItems, "mmmmmmmm")
+    })
+    // let tester = RESTAURANT.menu.filter((cat) => cat.category === cat)
+    // // console.log(tester, "hhhhhh")
+    res.render("category.ejs",{
+        menuItems, 
+        categoryName
+       } )
 })
 
 app.listen(3000);
